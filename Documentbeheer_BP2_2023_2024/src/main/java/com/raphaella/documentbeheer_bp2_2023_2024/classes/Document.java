@@ -1,6 +1,7 @@
 package com.raphaella.documentbeheer_bp2_2023_2024.classes;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,6 +37,18 @@ public class Document {
     public String getInformation() {return information;}
 
     public Date getDate() {return date;}
+
+    public VBox show(){
+        VBox listItem = new VBox();
+        listItem.setPrefHeight( 150);
+        listItem.setStyle("-fx-background-color: #fff303;");
+
+        Label document = new Label(title + " " + author + " " + information + " " + date);
+        listItem.getChildren().add(document);
+
+        return listItem;
+    }
+
 
 
 

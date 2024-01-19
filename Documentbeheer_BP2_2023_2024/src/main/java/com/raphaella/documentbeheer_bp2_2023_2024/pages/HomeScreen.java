@@ -32,7 +32,9 @@ public class HomeScreen {
 
         Button documentsPage = new Button("You can look for documents here!");
         documentsPage.setOnAction(a->{
-            SearchPage zp = new SearchPage();
+            SearchPage searchPage = new SearchPage();
+            searchPage.show();
+
         });
 
 
