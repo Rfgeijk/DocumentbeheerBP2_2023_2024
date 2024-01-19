@@ -43,11 +43,13 @@ public class Document {
         listItem.setPrefHeight( 150);
         listItem.setStyle("-fx-background-color: #fff303;");
 
+
         Label document = new Label(title + " " + author + " " + information + " " + date);
         listItem.getChildren().add(document);
 
         return listItem;
     }
+
 
 
 

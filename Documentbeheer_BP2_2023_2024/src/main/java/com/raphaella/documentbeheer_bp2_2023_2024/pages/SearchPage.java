@@ -31,22 +31,38 @@ public class SearchPage {
     private Scene deScene = new Scene(root, 800, 600);
 
     public SearchPage() {
-        // Voeg de downloadknop toe aan de root VBox
-        root.getChildren().add(download);
-
-        // Laad documenten uit de database en voeg ze toe aan de root VBox
         loadDocuments();
     }
 
     private void loadDocuments() {
-        // Haal documenten op uit de database (dummy implementatie, vervang dit met je eigen logica)
         List<Document> documents = db.getAllDocuments();
 
-        // Maak VBox voor elk document en voeg deze toe aan de root VBox
         for (Document document : documents) {
-            root.getChildren().add(document.show());
+            VBox documentBox = document.show();
+
+            // Create a new download button for each document
+            Button downloadButton = new Button("Download");
+            downloadButton.setOnAction(event -> {
+                downloadDocument(document);
+            });
+
+            // Add both the document VBox and the download button to the root VBox
+            root.getChildren().addAll(documentBox, downloadButton);
         }
     }
+    private void downloadDocument(Document document) {
+        String title = document.getTitle();
+        String author = document.getAuthor();
+        String information = document.getInformation();
+        String date = document.getDate().toString();
+
+        // Perform actions with the document information
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Information: " + information);
+        System.out.println("Date: " + date);
+    }
+
 
 
     public void show() {
