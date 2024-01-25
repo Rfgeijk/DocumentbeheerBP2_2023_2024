@@ -80,7 +80,7 @@ public class ApplicationLogin extends Application {
     private boolean authenticate(String username, String password) {
         // Implement your authentication logic here
         // For simplicity, this example uses a hardcoded username and password
-        return username.equals("user") && password.equals("password");
+        return username.equals("SystemGuardian") && password.equals("Pro2024@Secure!");
     }
 
 

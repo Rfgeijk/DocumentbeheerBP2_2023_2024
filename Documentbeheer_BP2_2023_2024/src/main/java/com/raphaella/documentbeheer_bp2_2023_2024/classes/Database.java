@@ -21,8 +21,8 @@ public class Database {
 
     public void uploadDocument(String title, String author, String information, Date date){
 
-        String sql = "INSERT INTO document VALUES (0, ?, ?, ?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        String sql = "INSERT INTO document (title, author, information, date) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, title);
             pstmt.setString(2, author);
             pstmt.setString(3, information);
@@ -30,11 +30,17 @@ public class Database {
 
             // Execute the statement
             pstmt.executeUpdate();
-            System.out.println("Gelukt!!");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
+            // Get the generated file_id (if needed)
+            try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    long fileId = generatedKeys.getLong(1);
+                    System.out.println("Gelukt!! Het gegenereerde file_id is: " + fileId);
+                }
+            }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
     }
 
@@ -46,12 +52,12 @@ public class Database {
              Statement statement = connection.createStatement()) {
 
             // Voer de SQL-query uit
-            String query = "SELECT * FROM Document";
+            String query = "SELECT * FROM document";
             ResultSet resultSet = statement.executeQuery(query);
 
             // Verwerk de resultaten en voeg documenten toe aan de lijst
             while (resultSet.next()) {
-                int id = resultSet.getInt("id");
+                int id = resultSet.getInt("document_id");
                 String title = resultSet.getString("title");
                 String author = resultSet.getString("author");
                 String information = resultSet.getString("information");
