@@ -85,8 +85,6 @@ public class Database {
     }
 
 
-  nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-
     public void deleteDocument(Document document) {
         String deleteQuery = "DELETE FROM document WHERE document_id=?";
 
@@ -111,6 +109,33 @@ public class Database {
             }
         });
     }
+
+    public void updateDocumentDetails(long documentId, String newTitle, String newAuthor, String newInformation, Date newDate) {
+        if (documentId <= 0) {
+            System.out.println("Invalid document ID.");
+            return;
+        }
+
+        // Implement the update logic here
+        String updateQuery = "UPDATE document SET title=?, author=?, information=?, date=? WHERE document_id=?";
+        try (PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
+            pstmt.setString(1, newTitle);
+            pstmt.setString(2, newAuthor);
+            pstmt.setString(3, newInformation);
+            pstmt.setDate(4, newDate);
+            pstmt.setLong(5, documentId);
+
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Document details updated successfully!");
+            } else {
+                System.out.println("Failed to update document details.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 }

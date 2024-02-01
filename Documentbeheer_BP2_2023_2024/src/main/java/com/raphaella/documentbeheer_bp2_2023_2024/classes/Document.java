@@ -38,7 +38,7 @@ public class Document {
     public VBox show(){
         VBox listItem = new VBox();
         listItem.setPrefHeight( 150);
-        listItem.setStyle("-fx-background-color: #fff303;");
+        listItem.setStyle("-fx-background-color: #aba6a6;");
 
 
         Label document = new Label(title + " " + author + " " + information + " " + date);

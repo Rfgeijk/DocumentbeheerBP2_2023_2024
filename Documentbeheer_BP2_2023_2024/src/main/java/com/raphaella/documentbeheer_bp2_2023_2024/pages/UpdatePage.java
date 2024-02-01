@@ -1,7 +1,6 @@
 package com.raphaella.documentbeheer_bp2_2023_2024.pages;
 
 import com.raphaella.documentbeheer_bp2_2023_2024.classes.Database;
-import com.raphaella.documentbeheer_bp2_2023_2024.classes.Document;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -46,7 +45,7 @@ public class UpdatePage {
                 String information = txtInformation.getText();
                 String datum = uploadDate.getValue().toString();
 
-                // Assuming you have the documentId stored in a variable in your UpdatePage class
+
                 long documentId = 1;
 
                 db.updateDocumentDetails(documentId, title, author, information, Date.valueOf(datum));
