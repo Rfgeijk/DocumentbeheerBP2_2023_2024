@@ -43,8 +43,8 @@ public class HomeScreen {
         addDocument.setPadding(new Insets(0, 0, 0, 0));
 
         addDocument.setOnAction(a->{
-            UploadPage up = new UploadPage();
-            UploadPage.show();
+            UploadPage uploadPage = new UploadPage();
+            uploadPage.show();
         });
 
 

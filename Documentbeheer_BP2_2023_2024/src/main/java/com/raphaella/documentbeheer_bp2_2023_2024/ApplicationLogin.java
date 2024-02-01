@@ -68,7 +68,7 @@ public class ApplicationLogin extends Application {
 
 
         stage.setTitle("Login Page");
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 300, 150);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

@@ -6,11 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage {
@@ -18,16 +13,10 @@ public class SearchPage {
 
     private Database db = new Database();
 
-    // Stap 1: Maken van de stage
     private Stage deStage = new Stage();
-
-    // Stap 2: Maken van een Layout
 
     private VBox root = new VBox();
 
-    private Button download = new Button("Download");
-
-    // Stap 3: Maken van Scene
     private Scene deScene = new Scene(root, 800, 600);
 
     public SearchPage() {
@@ -40,14 +29,26 @@ public class SearchPage {
         for (Document document : documents) {
             VBox documentBox = document.show();
 
-            // Create a new download button for each document
             Button downloadButton = new Button("Download");
             downloadButton.setOnAction(event -> {
                 downloadDocument(document);
             });
 
+            Button updateButton = new Button("Update");
+            updateButton.setOnAction(event -> {
+                UpdatePage updatePage = new UpdatePage();
+                updatePage.show();
+
+            });
+
+            Button deleteButton = new Button("Delete");
+            deleteButton.setOnAction(event -> {
+                db.deleteDocument(document);
+            });
+
+
             // Add both the document VBox and the download button to the root VBox
-            root.getChildren().addAll(documentBox, downloadButton);
+            root.getChildren().addAll(documentBox, downloadButton, updateButton, deleteButton);
         }
     }
     private void downloadDocument(Document document) {
@@ -62,6 +63,7 @@ public class SearchPage {
         System.out.println("Information: " + information);
         System.out.println("Date: " + date);
     }
+
 
 
 

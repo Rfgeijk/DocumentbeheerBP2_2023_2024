@@ -1,10 +1,7 @@
 package com.raphaella.documentbeheer_bp2_2023_2024.classes;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.sql.Date;
 
 public class Document {

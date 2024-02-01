@@ -16,13 +16,10 @@ public class UploadPage {
 
         Database db = new Database();
 
-        //Stap 1: Maken van de stage
         Stage deStage = new Stage();
 
-        //Stap 2: Maken van een Layout
         GridPane root = new GridPane();
 
-        //Stap 2a: Toevoegen van controls
         TextField txtTitle = new TextField("Title");
         txtTitle.setPromptText("Title");
         TextField txtInformation = new TextField();
@@ -34,11 +31,8 @@ public class UploadPage {
         Button btnOpslaan = new Button("Upload");
 
 
-
-        //Stap 3:Maken van Scene
         Scene deScene = new Scene(root, 800, 600);
 
-        //Stap 4: Scene koppelen aan layout
         deStage.setScene(deScene);
         deStage.show();
 
@@ -49,13 +43,6 @@ public class UploadPage {
             String datum = uploadDate.getValue().toString();
 
             db.uploadDocument(title, author, information, Date.valueOf(datum));
-
-            System.out.println("Titel: " + title);
-            System.out.println("Auteur: " + author);
-            System.out.println("Informatie: " + information);
-            System.out.println("Datum: " + datum);
-
-
 
         });
 
