@@ -55,7 +55,7 @@ public class HomeScreen {
         root.add(addDocument, 0, 2);
         root.getChildren();
 
-        scene = new Scene(root, 800, 250);
+        scene = new Scene(root, 600, 200);
         Stage stage = new Stage();
         stage.setTitle("Home Screen");
         stage.setScene(getScene());

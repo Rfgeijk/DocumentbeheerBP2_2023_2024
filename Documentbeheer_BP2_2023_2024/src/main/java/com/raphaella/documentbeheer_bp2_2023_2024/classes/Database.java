@@ -109,33 +109,56 @@ public class Database {
             }
         });
     }
-
-    public void updateDocumentDetails(long documentId, String newTitle, String newAuthor, String newInformation, Date newDate) {
-        if (documentId <= 0) {
-            System.out.println("Invalid document ID.");
+    public void updateDocumentDetails(String currentTitle, String newTitle, String newAuthor, String newInformation, Date newDate) {
+        if (currentTitle == null || currentTitle.isEmpty()) {
+            System.out.println("Invalid current title.");
             return;
         }
 
-        // Implement the update logic here
-        String updateQuery = "UPDATE document SET title=?, author=?, information=?, date=? WHERE document_id=?";
-        try (PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
-            pstmt.setString(1, newTitle);
-            pstmt.setString(2, newAuthor);
-            pstmt.setString(3, newInformation);
-            pstmt.setDate(4, newDate);
-            pstmt.setLong(5, documentId);
+        // Eerst de huidige gegevens ophalen
+        String selectQuery = "SELECT * FROM document WHERE title=?";
+        try (PreparedStatement selectStmt = conn.prepareStatement(selectQuery)) {
+            selectStmt.setString(1, currentTitle);
+            ResultSet resultSet = selectStmt.executeQuery();
 
-            int affectedRows = pstmt.executeUpdate();
-            if (affectedRows > 0) {
-                System.out.println("Document details updated successfully!");
+            if (resultSet.next()) {
+                // Document gevonden, gegevens ophalen
+                long documentId = resultSet.getLong("document_id");
+                String currentAuthor = resultSet.getString("author");
+                String currentInformation = resultSet.getString("information");
+                Date currentDate = resultSet.getDate("date");
+
+                // Controleren of de gegevens verschillen voordat je de update uitvoert
+                if (!newTitle.equals(currentTitle) || !newAuthor.equals(currentAuthor)
+                        || !newInformation.equals(currentInformation) || !newDate.equals(currentDate)) {
+                    // De gegevens zijn gewijzigd, voer de update uit
+                    String updateQuery = "UPDATE document SET title=?, author=?, information=?, date=? WHERE document_id=?";
+                    try (PreparedStatement updateStmt = conn.prepareStatement(updateQuery)) {
+                        updateStmt.setString(1, newTitle);
+                        updateStmt.setString(2, newAuthor);
+                        updateStmt.setString(3, newInformation);
+                        updateStmt.setDate(4, newDate);
+                        updateStmt.setLong(5, documentId);
+
+                        int affectedRows = updateStmt.executeUpdate();
+                        if (affectedRows > 0) {
+                            System.out.println("Document details updated successfully!");
+                        } else {
+                            System.out.println("Failed to update document details.");
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    System.out.println("No changes detected. Document details remain the same.");
+                }
             } else {
-                System.out.println("Failed to update document details.");
+                System.out.println("Document not found with title: " + currentTitle);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 
 
 }

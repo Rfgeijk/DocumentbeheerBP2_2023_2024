@@ -17,6 +17,8 @@ public class Document {
 
     private Date date;
 
+
+
     public Document(int id, String title, String author, String information, Date date) {
         this.id = id;
         this.title = title;
@@ -47,7 +49,11 @@ public class Document {
         return listItem;
     }
 
+    public Document(String currentTitle) {
+        this.currentTitle = currentTitle;
+    }
 
+    private String currentTitle;
 
 
 

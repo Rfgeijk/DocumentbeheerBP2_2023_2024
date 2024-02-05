@@ -12,7 +12,7 @@ import java.sql.Date;
 
 public class UpdatePage {
 
-        public UpdatePage(){
+    public UpdatePage(){
 
             Database db = new Database();
 
@@ -20,15 +20,15 @@ public class UpdatePage {
 
             GridPane root = new GridPane();
 
-            TextField txtTitle = new TextField("Title");
-            txtTitle.setPromptText("Title");
+            TextField txtTitle = new TextField();
+            txtTitle.setPromptText("Fill in title of the document you want to Update");
             TextField txtInformation = new TextField();
             txtInformation.setPromptText("Information (max 255 words)");
             txtInformation.setPrefSize(400, 400);
             TextField txtAuthor = new TextField();
             txtAuthor.setPromptText("Author");
             DatePicker uploadDate = new DatePicker();
-            Button btnUpdate = new Button("Update");
+            Button btnUpdate = new Button("Update Document");
 
 
 
@@ -38,17 +38,18 @@ public class UpdatePage {
 
             deStage.setScene(deScene);
             deStage.show();
+            btnUpdate.setOnAction(event ->{
+                // Retrieve the title from the text field
+                String currentTitle = txtTitle.getText();
 
-            btnUpdate.setOnAction(a -> {
-                String title = txtTitle.getText();
-                String author = txtAuthor.getText();
-                String information = txtInformation.getText();
-                String datum = uploadDate.getValue().toString();
+                // Retrieve other fields
+                String newTitle = txtTitle.getText();
+                String newAuthor = txtAuthor.getText();
+                String newInformation = txtInformation.getText();
+                Date newDate = Date.valueOf(uploadDate.getValue());
 
-
-                long documentId = 1;
-
-                db.updateDocumentDetails(documentId, title, author, information, Date.valueOf(datum));
+                // Call the updateDocumentDetails method with the parameters
+                db.updateDocumentDetails(currentTitle, newTitle, newAuthor, newInformation, newDate);
             });
 
             root.add(txtTitle, 0, 1);
@@ -58,8 +59,6 @@ public class UpdatePage {
             root.add(btnUpdate, 0, 5);
 
 
-        }
-
-        public static void show() {
-        }
+    }
+    public static void show() {}
 }
