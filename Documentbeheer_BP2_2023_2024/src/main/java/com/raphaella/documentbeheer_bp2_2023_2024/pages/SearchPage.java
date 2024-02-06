@@ -47,7 +47,6 @@ public class SearchPage {
             });
 
 
-            // Add both the document VBox and the download button to the root VBox
             root.getChildren().addAll(documentBox, downloadButton, updateButton, deleteButton);
         }
     }
@@ -57,14 +56,12 @@ public class SearchPage {
         String information = document.getInformation();
         String date = document.getDate().toString();
 
-        // Perform actions with the document information
+
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Information: " + information);
         System.out.println("Date: " + date);
     }
-
-
 
 
     public void show() {

@@ -23,7 +23,7 @@ public class ApplicationLogin extends Application {
         root.setVgap(10);
         root.setHgap(10);
 
-        // Username label and text field
+
         Label usernameLabel = new Label("Username:");
         GridPane.setConstraints(usernameLabel, 0, 0);
 
@@ -31,7 +31,7 @@ public class ApplicationLogin extends Application {
         usernameInput.setPromptText("Enter your username");
         GridPane.setConstraints(usernameInput, 1, 0);
 
-        // Password label and password field
+
         Label passwordLabel = new Label("Password:");
         GridPane.setConstraints(passwordLabel, 0, 1);
 
@@ -39,31 +39,31 @@ public class ApplicationLogin extends Application {
         passwordInput.setPromptText("Enter your password");
         GridPane.setConstraints(passwordInput, 1, 1);
 
-        // Login button
+
         Button loginButton = new Button("Login");
         GridPane.setConstraints(loginButton, 1, 2);
 
-        // Action for the login button
+
         loginButton.setOnAction(e -> {
             if (authenticate(usernameInput.getText(), passwordInput.getText())) {
                 System.out.println("Login successful!");
-                // Maak een nieuw homescherm aan
+
                 HomeScreen homeScreen = new HomeScreen();
 
-                // Haal het podium op van de knop (loginButton)
+
                 Stage staGe = (Stage) loginButton.getScene().getWindow();
 
-                // Sluit het huidige scherm
+
                 stage.close();
 
-                // Laat het nieuwe scherm zien
+
                 homeScreen.show();
             } else {
                 System.out.println("Login failed. Please check your credentials.");
             }
         });
 
-        // Add controls to the grid
+
         root.getChildren().addAll(usernameLabel, usernameInput, passwordLabel, passwordInput, loginButton);
 
 
@@ -76,16 +76,13 @@ public class ApplicationLogin extends Application {
 
     }
 
-    // Dummy authentication method
-    private boolean authenticate(String username, String password) {
-        // Implement your authentication logic here
-        // For simplicity, this example uses a hardcoded username and password
+    boolean authenticate(String username, String password) {
+
         return username.equals("SystemGuardian") && password.equals("Pro2024@Secure!");
     }
-
-
 
     public static void main(String[] args) {
         launch();
     }
+
 }

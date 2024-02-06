@@ -27,6 +27,10 @@ public class Document {
         this.date = date;
     }
 
+    public Document() {
+    }
+
+
     public int getId() {return id;}
 
     public String getTitle() {return title;}

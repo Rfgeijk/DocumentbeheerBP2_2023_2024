@@ -39,16 +39,16 @@ public class UpdatePage {
             deStage.setScene(deScene);
             deStage.show();
             btnUpdate.setOnAction(event ->{
-                // Retrieve the title from the text field
+
                 String currentTitle = txtTitle.getText();
 
-                // Retrieve other fields
+
                 String newTitle = txtTitle.getText();
                 String newAuthor = txtAuthor.getText();
                 String newInformation = txtInformation.getText();
                 Date newDate = Date.valueOf(uploadDate.getValue());
 
-                // Call the updateDocumentDetails method with the parameters
+
                 db.updateDocumentDetails(currentTitle, newTitle, newAuthor, newInformation, newDate);
             });
 
