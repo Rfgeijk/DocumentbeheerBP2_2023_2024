@@ -11,14 +11,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Databasegetalldocumentstest {
+class DatabasegetalldocumentsTest {
 
     private Connection conn;
 
     @BeforeEach
     public void setUp() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer", "root", "");
+            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem", "", "");
             if (conn.isValid(5)) System.out.println("Verbinding OK!");
         } catch (SQLException e) {
             System.out.println(e);
@@ -47,5 +47,4 @@ class Databasegetalldocumentstest {
         Assertions.assertNotNull(firstDocument.getInformation());
         Assertions.assertNotNull(firstDocument.getDate());
     }
-
 }

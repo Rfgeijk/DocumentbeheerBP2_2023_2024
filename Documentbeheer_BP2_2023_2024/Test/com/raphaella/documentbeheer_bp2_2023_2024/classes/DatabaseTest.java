@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.*;
 
-class DatabaseTest {
+import static org.junit.jupiter.api.Assertions.*;
 
+class DatabaseTest {
     private Connection conn;
 
     @BeforeEach

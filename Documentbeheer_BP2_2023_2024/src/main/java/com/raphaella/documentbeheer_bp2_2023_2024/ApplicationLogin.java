@@ -76,7 +76,7 @@ public class ApplicationLogin extends Application {
 
     }
 
-    boolean authenticate(String username, String password) {
+    public boolean authenticate(String username, String password) {
 
         return username.equals("SystemGuardian") && password.equals("Pro2024@Secure!");
     }
