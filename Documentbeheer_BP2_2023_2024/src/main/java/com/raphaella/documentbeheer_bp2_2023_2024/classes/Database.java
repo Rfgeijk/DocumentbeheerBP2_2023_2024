@@ -13,8 +13,8 @@ public class Database {
 
     public Database(){
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem",
-                    "documentbeheersysteem", "I2l361gu_");
+            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer",
+                    "root", "");
             if(conn.isValid(5)) System.out.println("Verbinding OK!");
         } catch (SQLException e) {
             System.out.println(e);
@@ -57,7 +57,7 @@ public class Database {
         List<Document> documents = new ArrayList<>();
 
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem", "documentbeheersysteem", "I2l361gu_");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer", "root", "");
              Statement statement = connection.createStatement()) {
 
 
