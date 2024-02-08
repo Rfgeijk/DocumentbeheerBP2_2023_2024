@@ -13,8 +13,8 @@ public class Database {
 
     public Database(){
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer",
-                    "root", "");
+            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem",
+                    "documentbeheersysteem", "I2l361gu_");
             if(conn.isValid(5)) System.out.println("Verbinding OK!");
         } catch (SQLException e) {
             System.out.println(e);
@@ -57,7 +57,7 @@ public class Database {
         List<Document> documents = new ArrayList<>();
 
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer", "root", "");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem", "documentbeheersysteem", "I2l361gu_");
              Statement statement = connection.createStatement()) {
 
 
@@ -115,23 +115,23 @@ public class Database {
             return;
         }
 
-        // Eerst de huidige gegevens ophalen
+
         String selectQuery = "SELECT * FROM document WHERE title=?";
         try (PreparedStatement selectStmt = conn.prepareStatement(selectQuery)) {
             selectStmt.setString(1, currentTitle);
             ResultSet resultSet = selectStmt.executeQuery();
 
             if (resultSet.next()) {
-                // Document gevonden, gegevens ophalen
+
                 long documentId = resultSet.getLong("document_id");
                 String currentAuthor = resultSet.getString("author");
                 String currentInformation = resultSet.getString("information");
                 Date currentDate = resultSet.getDate("date");
 
-                // Controleren of de gegevens verschillen voordat je de update uitvoert
+
                 if (!newTitle.equals(currentTitle) || !newAuthor.equals(currentAuthor)
                         || !newInformation.equals(currentInformation) || !newDate.equals(currentDate)) {
-                    // De gegevens zijn gewijzigd, voer de update uit
+
                     String updateQuery = "UPDATE document SET title=?, author=?, information=?, date=? WHERE document_id=?";
                     try (PreparedStatement updateStmt = conn.prepareStatement(updateQuery)) {
                         updateStmt.setString(1, newTitle);

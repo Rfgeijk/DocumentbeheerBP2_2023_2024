@@ -20,7 +20,7 @@ public class UploadPage {
 
         GridPane root = new GridPane();
 
-        TextField txtTitle = new TextField("Title");
+        TextField txtTitle = new TextField();
         txtTitle.setPromptText("Title");
         TextField txtInformation = new TextField();
         txtInformation.setPromptText("Information (max 255 words)");

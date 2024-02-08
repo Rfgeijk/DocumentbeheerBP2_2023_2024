@@ -43,7 +43,7 @@ public class Document {
 
     public VBox show(){
         VBox listItem = new VBox();
-        listItem.setPrefHeight( 150);
+        listItem.setPrefHeight( 100);
         listItem.setStyle("-fx-background-color: #aba6a6;");
 
 
