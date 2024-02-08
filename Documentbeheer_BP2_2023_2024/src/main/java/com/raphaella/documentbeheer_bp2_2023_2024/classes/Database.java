@@ -13,7 +13,7 @@ public class Database {
 
     public Database(){
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem",
+            this.conn = DriverManager.getConnection("jdbc:mysql://adainforma.tk:3306/bp2_documentbeheersysteem",
                     "documentbeheersysteem", "I2l361gu_");
             if(conn.isValid(5)) System.out.println("Verbinding OK!");
         } catch (SQLException e) {
@@ -57,7 +57,7 @@ public class Database {
         List<Document> documents = new ArrayList<>();
 
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bp2_documentbeheersysteem", "documentbeheersysteem", "I2l361gu_");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://adainforma.tk:3306/bp2_documentbeheersysteem", "documentbeheersysteem", "I2l361gu_");
              Statement statement = connection.createStatement()) {
 
 
@@ -110,11 +110,6 @@ public class Database {
         });
     }
     public void updateDocumentDetails(String currentTitle, String newTitle, String newAuthor, String newInformation, Date newDate) {
-        if (currentTitle == null || currentTitle.isEmpty()) {
-            System.out.println("Invalid current title.");
-            return;
-        }
-
 
         String selectQuery = "SELECT * FROM document WHERE title=?";
         try (PreparedStatement selectStmt = conn.prepareStatement(selectQuery)) {

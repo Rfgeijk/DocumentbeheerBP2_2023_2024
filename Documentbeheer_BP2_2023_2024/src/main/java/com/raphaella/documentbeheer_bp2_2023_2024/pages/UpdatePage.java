@@ -50,6 +50,8 @@ public class UpdatePage {
 
 
                 db.updateDocumentDetails(currentTitle, newTitle, newAuthor, newInformation, newDate);
+
+
             });
 
             root.add(txtTitle, 0, 1);
