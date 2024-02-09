@@ -11,7 +11,6 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
 -   Java Development Kit (JDK) geïnstalleerd
 -   XAMPP geïnstalleerd en actief. Start de XAMPP-server en PhpMyAdmin via het controlepaneel door te klikken op "Start" naast de modules Apache en MySQL.
 -   [PhpMyAdmin](https://www.phpmyadmin.net/) toegankelijk via de XAMPP-installatie
-- 
 
 ### Installatie
 
@@ -27,11 +26,9 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
 	het + knopje en zoek je op mysql-connector. Hierna moet je de versie 8.2.0 pakken en
 	installeren. Dan zou je hem moeten hebben!
 	
-4.	Open Phpmyadmin via xampp (klik op admin naast MySQL in het menu) en maak een nieuwe database aan  noem deze "documentbeheer" en importeer het SQL-file met de gegevens van de database hierin.
+4.	Open Phpmyadmin via xampp (klik op admin naast MySQL in het menu) en maak een nieuwe database aan  noem deze "documentbeheer" en importeer het gegeven SQL-file met de gegevens van de database hierin.
     
-5.  Configureer de database-verbinding in je JavaFX-applicatie om te verwijzen naar de PhpMyAdmin-database die wordt gehost door XAMPP.
-    
-6.  Start de JavaFX-applicatie.
+5.  Start de JavaFX-applicatie.
     
 
 ## Gebruik
@@ -44,36 +41,9 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
     
 3.  Navigeer naar het dashboard of de benodigde pagina's en begin met het uploaden en downloaden van je documenten.
 
-4. Als je je document hebt geüpload kun je het venster sluiten en hierna op de "Searchpage" (de zoekpagina) zoeken of hij er tussen staat om te controleren of je hem goed hebt geüpload! Op de Searchpage kun je tegelijkertijd ook alle documenten zien die je hebt geüpload, je kunt ze verwijderen, updaten met nieuwe informatie of downloaden. 
-
-5.  Als je het document wil updaten moet je bovenin de titel van het bestand zetten wat je wilt aanpassen, daarna kun je de rest invullen en op de "update" knop klikken. Je kunt je document daarna controleren door opnieuw de searchpage te openen en te kijken of het gelukt is. 
-    
-
-## Database Configuratie
-
-Pas de databaseconfiguratie aan in de Java-code om deze aan te passen aan jouw XAMPP/PhpMyAdmin-installatie. De databaseconfiguratie bevindt zich in de klasse `Database`.
-
-Het DBS ondersteunt de volgende database-configuratieopties:
-
--   Database URL: `jdbc:mysql://localhost:3306/documentbeheer`
--   Gebruikersnaam: `"root"`
--   Wachtwoord: `" "`
-
-Pas de databaseconfiguratie aan in de Java-code om deze aan te passen aan jouw XAMPP/PhpMyAdmin-installatie.
-
-De connectie met mijn database heb ik zelf zo gelegd:
-``` private Connection conn;  
-  
-public Database(){  
-    try {  
-        this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer",  
-                "root", "");    
-    } catch (SQLException e) {  
-        System.out.println(e);  
-      
-  }  
-}   
- ```
+4. Als je je document wil uploaden moet je op "Add documents" klikken. Dit opent een scherm met alle opties om de gegevens in te vullen. Na alle gegevens in te hebben gevuld klik je op "Upload" en kun je het venster sluiten en hierna op de "Searchpage" (de zoekpagina) zoeken of het bestand tussen staat om te controleren of je hem goed hebt geüpload! Op de Searchpage kun je tegelijkertijd ook alle documenten zien die je hebt geüpload, je kunt ze verwijderen, updaten met nieuwe informatie of downloaden. Je komt hier door op "You can look for documents here!" te klikken. 
+5.  Als je het document wil updaten moet onder het document op de zoekpagina klikken op: Update. Hierdoor krijg je een scherm en moet je bovenin de titel van het bestand zetten wat je wilt aanpassen, daarna kun je de rest invullen en op de "update" knop klikken. Je kunt je document daarna controleren door opnieuw de zoekpagina te openen en te kijken of het gelukt is. Hetzelfe geld eigenlijk voor delete! Je hoeft alleen maar op de knop te klikken en bij de waarschuwing ook. Hierna gewoon opnieuw de zoekpagina openen en het document zou weg moeten zijn!
+   
 
 
 -   [JavaFX](https://openjfx.io/)
