@@ -13,12 +13,12 @@ public class Database {
 
     public Database(){
         try {
-            this.conn = DriverManager.getConnection("jdbc:mysql://adainforma.tk:3306/bp2_documentbeheersysteem",
-                    "documentbeheersysteem", "I2l361gu_");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer",
+                    "root", "");
             if(conn.isValid(5)) System.out.println("Verbinding OK!");
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
-
         }
     }
 
@@ -57,7 +57,7 @@ public class Database {
         List<Document> documents = new ArrayList<>();
 
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://adainforma.tk:3306/bp2_documentbeheersysteem", "documentbeheersysteem", "I2l361gu_");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/documentbeheer", "root", "");
              Statement statement = connection.createStatement()) {
 
 
