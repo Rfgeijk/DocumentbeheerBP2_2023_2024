@@ -10,7 +10,7 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
 
 -   Java Development Kit (JDK) geïnstalleerd
 -   XAMPP geïnstalleerd en actief. Start de XAMPP-server en PhpMyAdmin via het controlepaneel door te klikken op "Start" naast de modules Apache en MySQL.
--   [PhpMyAdmin](https://www.phpmyadmin.net/) toegankelijk via de XAMPP-installatie
+-   [PhpMyAdmin](https://www.phpmyadmin.net/) toegankelijk via de XAMPP-installatie. Als je er in moet loggen neem dan username: "root" en laat het wachtwoord open.
 
 ### Installatie
 
