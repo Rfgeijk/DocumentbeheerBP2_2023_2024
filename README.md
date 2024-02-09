@@ -19,8 +19,9 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
     
 2.  Open het project in jouw Java IDE (Ik gebruik persoonlijk IntelliJ).
     
-3.  Zorg ervoor dat de benodigde Java-bibliotheken en -afhankelijkheden zijn geïnstalleerd zoals bijvoorbeeld de mysql-connector 8.2.0 om toegang te krijgen tot de database.
+3.  Zorg ervoor dat de benodigde Java-bibliotheken en -afhankelijkheden zijn geïnstalleerd zoals bijvoorbeeld de mysql-connector 8.2.0 om toegang te krijgen tot de database. Je kunt dit checken links onderin in IntelliJ onder External Libraries en dan helemaal onderin kijken.
 
+Als hij er niet tussen staat moet je het volgende doen: 
 	Deze connector kun je installeren door in IntelliJ linksbovenin op de streepjes te gaan staan en
 	dan te klikken op "File" en daarna "project structure". Hierna ga je naar "modules" en klik je op
 	het + knopje en zoek je op mysql-connector. Hierna moet je de versie 8.2.0 pakken en
