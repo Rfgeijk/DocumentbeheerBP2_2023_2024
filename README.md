@@ -9,6 +9,7 @@ Volg de onderstaande stappen om het DocumentBeheerSysteem op lokaal niveau te in
 ### Vereisten
 
 -   Java Development Kit (JDK) geïnstalleerd
+-   Java IDE (bijv IntelliJ)
 
 ### Installatie
 
@@ -39,7 +40,8 @@ Als hij er niet tussen staat moet je het volgende doen:
     
 3.  Navigeer naar het dashboard of de benodigde pagina's en begin met het uploaden en downloaden van je documenten.
 
-4. Als je je document wil uploaden moet je op "Add documents" klikken. Dit opent een scherm met alle opties om de gegevens in te vullen. Na alle gegevens in te hebben gevuld klik je op "Upload" en kun je het venster sluiten en hierna op de "Searchpage" (de zoekpagina) zoeken of het bestand tussen staat om te controleren of je hem goed hebt geüpload! Op de Searchpage kun je tegelijkertijd ook alle documenten zien die je hebt geüpload, je kunt ze verwijderen, updaten met nieuwe informatie of downloaden. Je komt hier door op "You can look for documents here!" te klikken. 
+4. Als je je document wil uploaden moet je op "Add documents" klikken. Dit opent een scherm met alle opties om de gegevens in te vullen. Na alle gegevens in te hebben gevuld klik je op "Upload" en kun je het venster sluiten en hierna op de "Searchpage" (de zoekpagina) zoeken of het bestand tussen staat om te controleren of je hem goed hebt geüpload! Op de Searchpage kun je tegelijkertijd ook alle documenten zien die je hebt geüpload, je kunt ze verwijderen, updaten met nieuwe informatie of downloaden. Je komt hier door op "You can look for documents here!" te klikken. Er staat al een documentje in als voorbeeld!
+   
 5.  Als je het document wil updaten moet onder het document op de zoekpagina klikken op: Update. Hierdoor krijg je een scherm en moet je bovenin de titel van het bestand zetten wat je wilt aanpassen, daarna kun je de rest invullen en op de "update" knop klikken. Je kunt je document daarna controleren door opnieuw de zoekpagina te openen en te kijken of het gelukt is. Hetzelfe geld eigenlijk voor delete! Je hoeft alleen maar op de knop te klikken en bij de waarschuwing ook. Hierna gewoon opnieuw de zoekpagina openen en het document zou weg moeten zijn!
 
 
